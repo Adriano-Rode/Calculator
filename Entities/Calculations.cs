@@ -43,12 +43,17 @@ namespace Entities
         public double Division(params double[] values)
         {
             _result = values[0];
-
+      
             for(int i = 1; i < values.Length; i++)
             {
+                if(values[i] == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+                
                 _result /= values[i];
             }
-
+            
             return _result;
         }
 
